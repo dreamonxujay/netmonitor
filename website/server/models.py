@@ -17,8 +17,8 @@ class Hosts(models.Model):
 	IPADDR = models.GenericIPAddressField(protocol='IPv4', unpack_ipv4=False)
 	PROJ_AREA = models.CharField(max_length=40)
 	OPERATOR = models.CharField(max_length=40)
-	PROJ_NAME = models.CharField(max_length=200)
-	PRODUCT_NAME = models.CharField(max_length=200)
+	PROJ_NAME = models.TextField(max_length=200)
+	PRODUCT_NAME = models.TextField(max_length=200)
 	PROVINCE_NAME = models.CharField(max_length=20)
 	IDC_NAME = models.CharField(max_length=200)
 	PROJ_MANAGER = models.CharField(max_length=40)
@@ -26,13 +26,13 @@ class Hosts(models.Model):
 	PROJ_PERSON_IN_CHARGE_TEL = models.IntegerField(max_length=11)
 	PROJ_PERSON_IN_CHARGE_WECHAT = models.CharField(max_length=20)
 	EQPT_STATUS = models.CharField(max_length=20)
-	EQPT_DESC = models.CharField(max_length=300)
+	EQPT_DESC = models.TextField(max_length=300)
 
 class Ports(models.Model):
 	ID = models.AutoField(blank=False, primary_key=True)  
 	# HOSTS_ID = models.ForeignKey(Hosts, on_delete=models.CASCADE)
 	POSTS = models.IntegerField(max_length=5)
-	POSTS_DESC = models.CharField(max_length=2000)
+	POSTS_DESC = models.TextField(max_length=2000)
 	RULE_ID = models.CharField(max_length=300)  
 
 
