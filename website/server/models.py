@@ -33,11 +33,11 @@ class Ports(models.Model):
 	# HOSTS_ID = models.ForeignKey(Hosts, on_delete=models.CASCADE)
 	POSTS = models.IntegerField(max_length=5)
 	POSTS_DESC = models.CharField(max_length=2000)
-	RULE_ID = models.CharField(max_length=300)  ### 忘记意思了
+	RULE_ID = models.CharField(max_length=300)  
 
 
 class History(models.Model):
-	DATE = models.DateTimeField(decimal_places=2) # 小数点后两位
+	DATE = models.DateTimeField(auto_now = True) # 字段保存时会自动保存当前时间
 	HOSTS_ID = models.CharField(max_length=40)
 	PROTS_ID  = models.CharField(max_length=40)
 	SCAN_TYPE = models.CharField(max_length=40)
@@ -46,7 +46,7 @@ class History(models.Model):
 
 class Alerts(models.Model):
 	ID = models.AutoField(blank=False, primary_key=True)  
-	DATE = models.DateTimeField(decimal_places=2) # 小数点后两位
+	DATE = models.DateTimeField(auto_now = True) # 字段保存时会自动保存当前时间
 	HOSTS_ID = models.CharField(max_length=40)
 	POSTS_ID = models.CharField(max_length=40)
 	STATUS = models.CharField(max_length=40)
@@ -61,5 +61,5 @@ class Alert_logs(models.Model):
 	ID = models.AutoField(blank=False, primary_key=True)  
 	AL_ID = models.CharField(max_length=40)
 	STATUS = models.CharField(max_length=40)
-	DATE = models.DateTimeField(decimal_places=2) # 小数点后两位
+	DATE = models.DateTimeField(auto_now = True) # 字段保存时会自动保存当前时间
 	DETAILS = models.CharField(max_length=40)
