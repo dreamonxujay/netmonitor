@@ -12,7 +12,7 @@ class Hosts(models.Model):
 	IDC_NAME = models.CharField(max_length=200, null=True, blank=True)
 	PROJ_MANAGER = models.CharField(max_length=40, null=True, blank=True)
 	PROJ_PERSON_IN_CHARGE = models.CharField(max_length=40, null=True, blank=True)
-	PROJ_PERSON_IN_CHARGE_TEL = models.IntegerField(null=True, blank=True)
+	PROJ_PERSON_IN_CHARGE_TEL = models.CharField(max_length=12, null=True, blank=True)
 	PROJ_PERSON_IN_CHARGE_WECHAT = models.CharField(max_length=20, null=True, blank=True)
 	EQPT_STATUS = models.CharField(max_length=20, null=True, blank=True)
 	EQPT_DESC = models.TextField(max_length=300, null=True, blank=True)
@@ -20,7 +20,7 @@ class Hosts(models.Model):
 class Ports(models.Model):
 	ID = models.AutoField(blank=False, primary_key=True)  
 	# HOSTS_ID = models.ForeignKey(Hosts, on_delete=models.CASCADE)
-	POSTS = models.IntegerField(null=True, blank=True)
+	POSTS = models.CharField(max_length=10, null=True, blank=True)
 	POSTS_DESC = models.TextField(max_length=2000, null=True, blank=True)
 	RULE_ID = models.CharField(max_length=300, null=True, blank=True)  
 
