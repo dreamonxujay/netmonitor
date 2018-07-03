@@ -1,21 +1,10 @@
 from django.db import models
 
 #
-
-class Question(models.Model):
-    question_text = models.CharField(max_length=200)
-    pub_date = models.DateTimeField('date published')
-
-class Choice(models.Model):
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    choice_text = models.CharField(max_length=200)
-    votes = models.IntegerField(default=0)
-
-
 class Hosts(models.Model):
 	ID = models.AutoField(blank=False, primary_key=True)  
 	IPADDR = models.GenericIPAddressField(protocol='IPv4', unpack_ipv4=False)
-	PROJ_AREA = models.CharField(max_length=40)
+	PROJ_AREA = models.CharField(max_length=40,null=True,blank=True)
 	OPERATOR = models.CharField(max_length=40)
 	PROJ_NAME = models.TextField(max_length=200)
 	PRODUCT_NAME = models.TextField(max_length=200)
@@ -23,7 +12,7 @@ class Hosts(models.Model):
 	IDC_NAME = models.CharField(max_length=200)
 	PROJ_MANAGER = models.CharField(max_length=40)
 	PROJ_PERSON_IN_CHARGE = models.CharField(max_length=40)
-	PROJ_PERSON_IN_CHARGE_TEL = models.IntegerField(max_length=11)
+	PROJ_PERSON_IN_CHARGE_TEL = models.IntegerField()
 	PROJ_PERSON_IN_CHARGE_WECHAT = models.CharField(max_length=20)
 	EQPT_STATUS = models.CharField(max_length=20)
 	EQPT_DESC = models.TextField(max_length=300)
@@ -31,7 +20,7 @@ class Hosts(models.Model):
 class Ports(models.Model):
 	ID = models.AutoField(blank=False, primary_key=True)  
 	# HOSTS_ID = models.ForeignKey(Hosts, on_delete=models.CASCADE)
-	POSTS = models.IntegerField(max_length=5)
+	POSTS = models.IntegerField()
 	POSTS_DESC = models.TextField(max_length=2000)
 	RULE_ID = models.CharField(max_length=300)  
 
