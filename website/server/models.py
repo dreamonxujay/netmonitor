@@ -43,12 +43,12 @@ class Alerts(models.Model):
 
 class Rules(models.Model):
 	ID = models.AutoField(blank=False, primary_key=True)  
-	DESC = models.CharField(max_length=40)
-	RULE = models.CharField(max_length=40)
+	DESC = models.CharField(max_length=40, null=True, blank=True)
+	RULE = models.CharField(max_length=40, null=True, blank=True)
 
 class Alert_logs(models.Model):
 	ID = models.AutoField(blank=False, primary_key=True)  
-	AL_ID = models.CharField(max_length=40)
-	STATUS = models.CharField(max_length=40)
-	DATE = models.DateTimeField(auto_now = True) # 字段保存时会自动保存当前时间
-	DETAILS = models.CharField(max_length=40)
+	AL_ID = models.CharField(max_length=40, null=True, blank=True)
+	STATUS = models.CharField(max_length=40, null=True, blank=True)
+	DATE = models.DateTimeField(auto_now = True, null=True, blank=True) # 字段保存时会自动保存当前时间
+	DETAILS = models.CharField(max_length=40, null=True, blank=True)
